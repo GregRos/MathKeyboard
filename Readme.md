@@ -1,5 +1,5 @@
 # Math Keyboard
-A free math keyboard layout, implemented as a script using AutoHotKey (AHK), released into the public domain.
+A free math keyboard layout, implemented as a script using AutoHotKey (AHK), released into the public domain. The keyboard file is `MathKeyboard.ahk`.
 
 The keyboard allows you to type mathematical symbols using mnemonic key combinations. It features multiple simple layouts. You can use them in Word, email, chat, and LaTeX (though that last one requires a bit of configuration), and anywhere in general that supports unicode characters. 
 
@@ -33,10 +33,10 @@ You can also type one of the following modifiers, which changes the previous cha
 	w	Switches to an advanced form of the previous charcter, such as turning ∫ into ∭ 
 		(∬ is produced by typing ``r + capital S)
 
-If there is an error, a tooltip appears and informs you of it, along with the character that caused the error. Then your input is either erased or turned into its literal form (e.g. `⍰⍰z` becoming ` ``z `).
+If there is an error, a tooltip appears and informs you of it, along with the character that caused the error. Then your input is either erased or turned into its literal form (e.g. `⍰⍰z` becoming \`\`z).
 
-You can escape `⍰⍰` by typing a single backtick (`` ` ``) afterwards, and it turns into ` `` `.
+You can escape `⍰⍰` by typing a single backtick (\`) afterwards, and it turns into \`\`.
 
-You can type the `⍰` character using ` ``!.`
+You can type the `⍰` character using \`\`!.
 
 You need AHK to use this script, which you can get from [The website](http://ahkscript.org/). You should install/use one of the unicode versions (this is the default).
