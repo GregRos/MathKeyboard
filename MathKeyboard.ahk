@@ -388,8 +388,9 @@ ToolTip_Subscript		=2	Subscript
 ToolTip_Superscript		=3	Superscript
 ToolTip_LowerDiacritic	=4	Lower Diacritic
 ToolTip_UpperDiacritic	=5	Upper Diacritic
-MainToolTip=%ToolTip_General%`n%ToolTip_Set%`n%ToolTip_Greek%`n%ToolTip_MiscOperators%`n%ToolTip_Subscript%`n%ToolTip_Superscript%`n%ToolTip_LowerDiacritic%`n%ToolTip_UpperDiacritic%
-
+ToolTip_Escape			=````	Literal 2 backticks ````
+ToolTip_LiteralQ		=!	Literal single ⍰
+MainToolTip=%ToolTip_General%`n%ToolTip_Set%`n%ToolTip_Greek%`n%ToolTip_MiscOperators%`n%ToolTip_Subscript%`n%ToolTip_Superscript%`n%ToolTip_LowerDiacritic%`n%ToolTip_UpperDiacritic%`n%ToolTip_Escape%`n%ToolTip_LiteralQ%
 ; EndRegion
 
 ; BeginRegion One character layouts mp_central

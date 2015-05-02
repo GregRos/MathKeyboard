@@ -20,6 +20,12 @@ Basically, you type \`\` (two backticks) and instead the symbols `⍰⍰ ` appea
 	r	General layout
 	d	Misc operators/symbols
 	e	Greek
+	2	Subscript
+	3	Superscript
+	4	Lower combining diacritic (a̱)
+	5	Upper combining diacritic (ā)
+	!	Literal ⍰ character
+	`	Literal `` characters
 	
 (This table appears as a tooltip).
 
