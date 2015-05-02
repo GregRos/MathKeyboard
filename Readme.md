@@ -14,7 +14,7 @@ Examples of the symbols you can type are:
 
 You can find a mostly full overview in the `Overview.xlsx` file, which describes which keys are mapped to which. 
 
-Basically, you type `` and instead the symbols `⍰⍰ `appear (these question marks in boxes are supposed to remind you you're using the keyboard). Then you can type one of the following keys to get a layout:
+Basically, you type \`\` (two backticks) and instead the symbols `⍰⍰ ` appear (these question marks in boxes are supposed to remind you you're using the keyboard). Then you can type one of the following keys to get a layout:
 
 	s	Set theory layout
 	r	General layout
