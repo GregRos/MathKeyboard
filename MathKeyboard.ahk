@@ -374,7 +374,7 @@ NegChar				=x
 ExtraChar				=w
 
 ;; These can be changed
-InfoTooltipTime			=5000
+InfoTooltipTime			=-1
 ErrorTooltipTime		=500
 LayoutNotFound		=Layout wasn't found.
 KeyNotFound			=Key wasn't found.
@@ -390,7 +390,10 @@ ToolTip_LowerDiacritic	=4	Lower Diacritic
 ToolTip_UpperDiacritic	=5	Upper Diacritic
 ToolTip_Escape			=````	Literal 2 backticks ````
 ToolTip_LiteralQ		=!	Literal single ⍰
-MainToolTip=%ToolTip_General%`n%ToolTip_Set%`n%ToolTip_Greek%`n%ToolTip_MiscOperators%`n%ToolTip_Subscript%`n%ToolTip_Superscript%`n%ToolTip_LowerDiacritic%`n%ToolTip_UpperDiacritic%`n%ToolTip_Escape%`n%ToolTip_LiteralQ%
+ToolTip_Negation		=x	Negate previous symbol
+ToolTip_Extra			=w	Advanced form of previous symbol
+
+MainToolTip=%ToolTip_General%`n%ToolTip_Set%`n%ToolTip_Greek%`n%ToolTip_MiscOperators%`n%ToolTip_Subscript%`n%ToolTip_Superscript%`n%ToolTip_LowerDiacritic%`n%ToolTip_UpperDiacritic%`n%ToolTip_Negation%`n%ToolTip_Extra%`n%ToolTip_Escape%`n%ToolTip_LiteralQ%
 ; EndRegion
 
 ; BeginRegion One character layouts mp_central
@@ -404,7 +407,8 @@ LastChar=No last char
 TooltipFor(text, time, n = 1)
 {
 	Tooltip, %text%, %A_CaretX% + 30, %A_CaretY% + 30, %n%
-	SetTimer, RemoveToolTip, %time%
+	if time != -1
+		SetTimer, RemoveToolTip, %time%
 	return
 
 	RemoveToolTip:
