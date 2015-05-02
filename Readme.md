@@ -1,6 +1,8 @@
 # Math Keyboard
 A free math keyboard layout, implemented as a script using AutoHotKey (AHK), released into the public domain. The keyboard file is `MathKeyboard.ahk`.
 
+You need AHK to use this script, which you can get from [The website](http://ahkscript.org/). You should install/use one of the unicode versions (this is the default). Then you just click on the `MathKeyboard` file, and that's it.
+
 The keyboard allows you to type mathematical symbols using mnemonic key combinations. It features multiple simple layouts. You can use them in Word, email, chat, and LaTeX (though that last one requires a bit of configuration), and anywhere in general that supports unicode characters. 
 
 Examples of the symbols you can type are: 
@@ -45,4 +47,3 @@ You can escape `⍰⍰` by typing a single backtick (\`) afterwards, and it turn
 
 You can type the `⍰` character using \`\`!.
 
-You need AHK to use this script, which you can get from [The website](http://ahkscript.org/). You should install/use one of the unicode versions (this is the default).
