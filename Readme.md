@@ -52,7 +52,7 @@ Not all keys have these forms. For example, it doesn't make sense to negate the 
 
 Note that `∈` and `∉` are completely different symbols.
 
-The effect each modifier has on each key can be seen in the Google Sheets table linked above. Note that modifier keys create symbols that can be modified again, although the only combination that is currently used is `Extra+Negation`, such as `d+'>'→'⊳' `→ `'⊳'+w→'⊵'` → `'⊵'+x→'⋭`.
+The effect each modifier has on each key can be seen in the Google Sheets table linked above. Note that modifier keys create symbols that can be modified again, although the only combination that is currently used is `Extra+Negation`, such as `d+'>'→'⊳' `→ `'⊳'+w→'⊵'` → `'⊵'+x→'⋭` (the font used on GitHub confuses `⊲` with `⊳`).
 
 ### Escape Sequences
 The following escape sequences allow you to type literal versions of active characters:
