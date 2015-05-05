@@ -89,7 +89,7 @@ The effect each modifier has on each key can be seen in the Google Sheets table 
 ---
 #### !!!! IMPORTANT !!!!
 
-This feature is frequently incompatible with applications. This is because applications aren't designed to handle these sorts of characters. Errors you could experience using this feature:
+This feature is frequently incompatible with some applications. This is because applications aren't designed to handle these sorts of characters. Errors you could experience using this feature:
 
 1. Problem with rendering the characters, even if the font contains them.
 2. Backspace deletes "half" of a character, and consequently some features of the script don't function exactly as they should.
