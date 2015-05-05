@@ -1,6 +1,8 @@
 # Math Keyboard
-Latest Version: **0.5.3**
+---
+Latest Version: **0.5.3**   [Download](https://github.com/GregRos/MathKeyboard/releases/download/v0.5.3/Math.Keyboard.0.5.3.exe)
 
+---
 A program for easily typing math characters, without interfering with normal typing, implemented using AutoHotKey (AHK), released into the public domain. 
 
 It features multiple simple layouts, activated by key combinations, each layout having a certain theme, and in each layout the same key can be mapped to a different character. You can this program in Word, email, chat, and LaTeX (though that last one requires a bit of configuration), and anywhere in general that supports a decent range of unicode characters.
@@ -26,13 +28,13 @@ You don't need to install/have anything installed on your computer.
 However, you try to make sure you have a font that can render these characters. While many fonts can render most characters such as operators, greek characters, combining diacritics, and so forth, the mathematical font characters require a math font like Cambria Math (proprietary font that comes with Office), [STIX Math](http://sourceforge.net/projects/stixfonts/), [XITS Math](https://github.com/khaledhosny/xits-math), or similar.
 
 ## How to Run
-Just click on the `MathKeyboard.exe` file downloadable from [here](ADD LINK). The program should appear as a tray icon. A context menu provides various options, including help (which links to this page), and key mappings (which links to the google sheet).
+Just click on the executable file to run the program. The program should appear as a tray icon. A context menu provides various options, including help (which links to this page), and key mappings (which links to the google sheet).
 
 The script is pretty uninstrusive, though you probably shouldn't play video games with it running. If you want to have it start automatically with Windows, you need to put a shortcut to the executable to the following folder:
 
 	C:\Users\[***YOUR USER FOLDER***]\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
-## Description
+## Guide
 The keyboard doesn't just replace your keys with other symbols. That would be very difficult to use. Instead, it uses the sequence \`\` (two back-ticks), which is called the active sequence. In order to remind you you're using the keyboard, it replaces those symbols with `ℳ:`. The next key you type will be interpreted as a command to the keyboard, which can either enable a specific layout or change the last key you typed into a different, related form.
 
 The keys you type are chosen sometimes because they are related to the command, but mainly because they are all on the left side of the keyboard, which means the combination \`\`[Key] can be typed quickly with one hand.
