@@ -98,7 +98,7 @@ This feature is frequently incompatible with some applications. This is because 
 Furthermore, many people simply don't have to fonts to display these characters.
 
 ##### Technical Stuff
-This is because these characters have codepoints higher than U+FFFF, e.g. they require more than 2 bytes to be represented. Most software assumes at least some of the time that unicode characters are confined to UTF-16, a format in which every codepoint is represented by exactly 2 bytes. This is sufficient to represent most modern languages, but doesn't cover the whole of unicode, which is truly immense. 
+This is because these characters have codepoints higher than U+FFFF, e.g. they require more than 2 bytes to be represented. Most software assumes at least some of the time that unicode characters are confined to UCS-2, a format in which every codepoint is represented by exactly 2 bytes. This is sufficient to represent most modern languages, but doesn't cover the whole of unicode, which is truly immense.
 
 ---
 
