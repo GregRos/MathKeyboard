@@ -14,6 +14,10 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+# SciTE Backups
+*.bak
+
+
 # Windows shortcuts
 *.lnk
 

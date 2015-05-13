@@ -1,10 +1,20 @@
 # Math Keyboard
 ---
-Latest Version: **0.5.3**   [Download](https://github.com/GregRos/MathKeyboard/releases/download/v0.5.3/Math.Keyboard.0.5.3.exe)
+Latest Version: **0.5.4**   **[Download](https://github.com/GregRos/MathKeyboard/releases/download/v0.5.3/Math.Keyboard.0.5.3.exe)**   *[View Mappings](http://1drv.ms/1PFBJpX)*
 
 ---
-A program for easily typing math characters, without interfering with normal typing, implemented using AutoHotKey (AHK), released into the public domain. 
+A program for easily typing math characters, without interfering with normal typing, implemented using AutoHotKey (AHK), released into the public domain. Requires Windows, and is designed for the standard US keyboard layout.
 
+
+## Features
+* Doesn't interfere with normal keyboard use, like typing and hotkeys.
+* Uses mnemonic key combinations.
+* Uses plain-text Unicode characters, so most of it works anywhere, like email, word processors, notepad, and chat.
+* Informative tooltips, containing unobtrusive error messages.
+* Fairly easy to add key mappings of your own.
+* You don't need to install anything to get it to work.
+
+## Overview
 It features multiple simple layouts, activated by key combinations, each layout having a certain theme, and in each layout the same key can be mapped to a different character. You can this program in Word, email, chat, and LaTeX (though that last one requires a bit of configuration), and anywhere in general that supports a decent range of unicode characters.
 
 The exception is the mathematical fonts feature, which is incompatible with some applications, though it still works in many.
@@ -18,8 +28,7 @@ Examples of the symbols you can type are:
 * Some wider, such as ] [ `em space`, ] [ `en space` (not distinguishable in all fonts, but the `em` space is twice as large).
 * Mathematical font characters, such as the ones visible here http://mathb.in/34748. Note that many applications are incompatible with them. See the font section for more information.
 
-You can find a mostly full overview of the mappings [here](https://docs.google.com/spreadsheets/d/1XwY12T9WvS9ac-Eynnej0O1s2RGy9Ej8OaQdczs3FFI), a Google Sheets table that  which describes which keys are mapped to which. The content of that file is also public domain.
-
+You can find a mostly full overview of the mappings in the link above, which opens a Microsoft Excel document using Office Live (I ran into problems when trying to use Google Docs).
 ## Requirements
 Requires Windows, sadly. It was tested on Windows 8.1, but should work on any version Vista and up.
 
@@ -96,9 +105,6 @@ This feature is frequently incompatible with some applications. This is because 
 3. Appear as asian characters.
 
 Furthermore, many people simply don't have to fonts to display these characters.
-
-##### Technical Stuff
-This is because these characters have codepoints higher than U+FFFF, e.g. they require more than 2 bytes to be represented. Most software assumes at least some of the time that unicode characters are confined to UCS-2, a format in which every codepoint is represented by exactly 2 bytes. This is sufficient to represent most modern languages, but doesn't cover the whole of unicode, which is truly immense.
 
 ---
 

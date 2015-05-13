@@ -1,6 +1,6 @@
 ﻿#SingleInstance Force
 
-_Version=0.5.3
+_Version=0.5.4
 ; 5th of May, 2015
 ; MathKeyboard, written by Gregory Rosenbaum 
 ; ======================================================
@@ -12,21 +12,21 @@ _Version=0.5.3
 
 HelpMe() 
 {
-	Run https://github.com/GregRos/MathKeyboard#how-it-works
+	Run http://gregros.github.io/MathKeyboard/index.html#Guide
 }
 
 Mappings()
 {
-	Run https://goo.gl/OiwwVc
+	Run http://1drv.ms/1PFBJpX
 }
 
 Menu, Tray, Tip, Math Keyboard! v%_version%
 Menu, Tray, Add, Help!, HelpMe
 Menu, Tray, Add, View Mappings, Mappings 
 
-IfExist, icon.ico
+IfExist, Images\icon.ico
 {
-	Menu, Tray, Icon, icon.ico, 1
+	Menu, Tray, Icon, Images\icon.ico, 1
 }
 
 ; Contains the key bindings
@@ -45,8 +45,8 @@ keyOperators				=d
 
 keySubscript				=2
 keySuperscript				=3
-keyUpperDiacritic			=4
-keyLowerDiacritic			=5
+keyUpperDiacritic			=5
+keyLowerDiacritic			=4
 
 keyNegation					=x
 keyExtra					=w
