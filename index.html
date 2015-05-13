@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Mathkeyboard by GregRos</title>
+    <title>Math Keyboard by GregRos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -11,7 +11,7 @@
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">Mathkeyboard</h1>
+      <h1 class="project-name">Math Keyboard</h1>
       <h2 class="project-tagline">A program for typing unicode math symbols using key combinations.</h2>
       <a href="https://github.com/GregRos/MathKeyboard" class="btn">View on GitHub</a>
       <a href="https://github.com/GregRos/MathKeyboard/zipball/master" class="btn">Download .zip</a>
@@ -21,11 +21,26 @@
     <section class="main-content">
       <hr>
 
-<p>Latest Version: <strong>0.5.3</strong>   <a href="https://github.com/GregRos/MathKeyboard/releases/latest">Download</a></p>
+<p>Latest Version: <strong>0.5.4</strong>   <strong><a href="https://github.com/GregRos/MathKeyboard/releases/download/v0.5.3/Math.Keyboard.0.5.3.exe">Download</a></strong>   <em><a href="http://1drv.ms/1PFBJpX">View Mappings</a></em></p>
 
 <hr>
 
-<p>A program for easily typing math characters, without interfering with normal typing and other keyboard use, implemented using AutoHotKey (AHK), released into the public domain. </p>
+<p>A program for easily typing math characters, without interfering with normal typing, implemented using AutoHotKey (AHK), released into the public domain. Requires Windows, and is designed for the standard US keyboard layout.</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Doesn't interfere with normal keyboard use, like typing and hotkeys.</li>
+<li>Uses mnemonic key combinations.</li>
+<li>Uses plain-text Unicode characters, so most of it works anywhere, like email, word processors, notepad, and chat.</li>
+<li>Informative tooltips, containing unobtrusive error messages.</li>
+<li>Fairly easy to add key mappings of your own.</li>
+<li>You don't need to install anything to get it to work.</li>
+</ul>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
 <p>It features multiple simple layouts, activated by key combinations, each layout having a certain theme, and in each layout the same key can be mapped to a different character. You can this program in Word, email, chat, and LaTeX (though that last one requires a bit of configuration), and anywhere in general that supports a decent range of unicode characters.</p>
 
@@ -43,7 +58,7 @@
 <li>Mathematical font characters, such as the ones visible here <a href="http://mathb.in/34748">http://mathb.in/34748</a>. Note that many applications are incompatible with them. See the font section for more information.</li>
 </ul>
 
-<p>You can find a mostly full overview of the mappings <a href="https://docs.google.com/spreadsheets/d/1XwY12T9WvS9ac-Eynnej0O1s2RGy9Ej8OaQdczs3FFI">here</a>, a Google Sheets table that  which describes which keys are mapped to which. The content of that file is also public domain.</p>
+<p>You can find a mostly full overview of the mappings in the link above, which opens a Microsoft Excel document using Office Live (I ran into problems when trying to use Google Docs).</p>
 
 <h2>
 <a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
@@ -142,11 +157,6 @@ w   Extra       Switches to an advanced form of the previous charcter, such as t
 
 <p>Furthermore, many people simply don't have to fonts to display these characters.</p>
 
-<h5>
-<a id="technical-stuff" class="anchor" href="#technical-stuff" aria-hidden="true"><span class="octicon octicon-link"></span></a>Technical Stuff</h5>
-
-<p>This is because these characters have codepoints higher than U+FFFF, e.g. they require more than 2 bytes to be represented. Most software assumes at least some of the time that unicode characters are confined to UCS-2, a format in which every codepoint is represented by exactly 2 bytes. This is sufficient to represent most modern languages, but doesn't cover the whole of unicode, which is truly immense.</p>
-
 <hr>
 
 <p>This is another modifier command, but it is a bit more complex and so deserves a section of its own. </p>
@@ -181,7 +191,7 @@ t   Typewriter
 <p>To add additional layouts some simple modifications of <code>MathKeyboard.ahk</code> are required.</p>
 
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/GregRos/MathKeyboard">Mathkeyboard</a> is maintained by <a href="https://github.com/GregRos">GregRos</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/GregRos/MathKeyboard">Math Keyboard</a> is maintained by <a href="https://github.com/GregRos">GregRos</a>.</span>
 
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
