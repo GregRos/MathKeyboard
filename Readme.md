@@ -51,7 +51,6 @@ The keys you type are chosen sometimes because they are related to the command, 
 In order to get \`\`, you need to escape the `ℳ:` symbols by typing an additional \` (back-tick).
 
 The following is a list of possible commands. Most of it also appears as a tooltip when you use the keyboard.
-
 	Layouts
 	--------
 	r   General layout, includes calculus, operators, ...
@@ -129,8 +128,12 @@ You can modify a character with fonts iteratively, but you should be aware that 
 ### Errors
 If there is an error, a tooltip appears and informs you of it, along with the character that caused the error. Then your input is either erased or turned into its literal form.
 
-### Modifying the Keyboard
+### Modifying the Key Bindings
 
-Most of the user-editable stuff is located in `Bindings.ahk`. It's fairly simple to add your own key bindings to the existing layouts. You can just follow the structure of the file. 
+This script comes with a configuration file called `Bindings.json`. This file contains the key/character mappings for the layouts and modifiers, including the keys that enable the different layouts. The program looks for this file in its own folder, and one is provided as part of the download. 
 
-To add additional layouts some simple modifications of `MathKeyboard.ahk` are required.
+You can edit the file, taking care to make sure everything is correct JSON, and add your own key bindings without recompiling or messing around with the code in general. You can even add your own layouts and modifiers. 
+
+If it's not found, the program just uses the default bindings file, which is embedded inside it, so the file isn't required. However, the script will probably crash if you provide an invalid `Bindings.json` file.
+
+The escape sequences (e.g. \`\`\`, \`\`!, \`\`[Tab]) and the font key bindings are hard-coded due to complicated reasons, and can't be modified without modifying the code.

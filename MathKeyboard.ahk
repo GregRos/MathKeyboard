@@ -1,12 +1,13 @@
 ﻿#SingleInstance Force
 
-_Version=0.5.4
-; 5th of May, 2015
+_Version=0.6.0
+
+; 15th of May, 2015
 ; MathKeyboard, written by Gregory Rosenbaum 
 ; ======================================================
 ; This script allows you to type unicode mathematics using your keyboard without disrupting normal typing.
 ; ======================================================
-; Released under Unlicense/to the public domain.
+; Released under Unlicense/to the public domain. Except for JSON.ahk which is released under WTFPL by someone else.
 ; Edit and distribute this file freely, including by removing this "copyright" notice. You can even replace my name with yours. 
 ; Or you can keep my name, if you're feeling nice.
 
@@ -20,17 +21,96 @@ Mappings()
 	Run http://1drv.ms/1PFBJpX
 }
 
+Menu, Tray, NoStandard
 Menu, Tray, Tip, Math Keyboard! v%_version%
 Menu, Tray, Add, Help!, HelpMe
 Menu, Tray, Add, View Mappings, Mappings 
-
+Menu, Tray, Add
+Menu, Tray, Standard
 IfExist, Images\icon.ico
 {
 	Menu, Tray, Icon, Images\icon.ico, 1
 }
 
-; Contains the key bindings
+; Contains the default Bindings.json file.
 #include Bindings.ahk
+; Lib for working with JSON.
+#include JSON.ahk
+
+; A set of key/character bindings, used for storing modifier/layout information.
+class KeyBindings 
+{
+	__New(key, name, description, bindings) 
+	{
+		this.Name:= name
+		this.Key:= key
+		this.Bindings:= bindings
+		this.Description:=description
+	}
+}
+
+ArrayToDictionary(arr)
+{
+	dict:=ComObjCreate("Scripting.Dictionary")
+	for index, mapping in arr
+	{
+		where:=mapping[2]
+		IfInString, where, 0x 
+		{
+			dict.item(mapping[1]) := Chr(mapping[2])
+		}
+		else
+		{
+			dict.item(mapping[1]) := mapping[2]
+		}
+	}
+	return dict
+}
+
+LoadBindings(bindings) {
+	data:= JSON.parse(bindings)
+	jLayouts:= data.layouts
+	jModifiers:=data.modifiers
+	global layouts
+	global modifiers
+	global escapes
+	global keyFont
+	layouts:={}
+	modifiers:={}
+	
+	for index, jLayout in jLayouts 
+	{
+		if jLayout.ignore
+		{
+			continue
+		}
+		bindings:=ArrayToDictionary(jLayout.bindings)
+		layout:=new KeyBindings(jLayout.key, jLayout.name, jLayout.description, bindings)
+		layouts[jLayout.key]:=layout
+	}
+	
+	for index, jModifier in jModifiers 
+	{
+		if jLayout.ignore
+		{
+			continue
+		}
+		bindings:=ArrayToDictionary(jModifier.bindings)
+		modifier:=new KeyBindings(jModifier.key, jModifier.name, jModifier.description, bindings)
+		modifiers[jModifier.key]:=modifier
+	}	
+}
+
+IfExist, Bindings.json
+{
+	FileRead, jsonBindings, *P65001 Bindings.json ;65001 is the UTF-8 codepage.	
+}
+else
+{
+	jsonBindings:=jsonDefaultBindings
+}
+
+LoadBindings(jsonBindings)
 
 ; ================================
 ; Settings and Strings
@@ -38,31 +118,20 @@ IfExist, Images\icon.ico
 
 ; BeginRegion Settings
 strScriptMarker				=ℳ:	
-keyGeneral					=r
-keySetTheory				=s
-keyGreek					=e
-keyOperators				=d
-
-keySubscript				=2
-keySuperscript				=3
-keyUpperDiacritic			=5
-keyLowerDiacritic			=4
-
-keyNegation					=x
-keyExtra					=w
 keyFont 					=f
-
 keyBacktick					=``
 keyScriptMarker				=!
+keyUnicode					=t
+
 ; The time a certain kind of tooltip remains visible. Later modified by the length of the text.
 ; -1 means forever.
 intInfoTooltipTime			=1200
 intErrorTooltipTime			=1000
 
 strErrorLayoutNotFound			=Unknown command.
-strErrorKeyNotFound				=Key wasn't found.
-strErrorNoNegationFound			=No negation found.
-strErrorNoExtraFound			=No extra symbol found.
+strErrorKeyNotFound				=Key wasn't found in layout '[1]'.
+strErrorLastCharUnknown			=Last character unknown.
+
 strErrorSymbolHasNoFonts		=The font of this symbol cannot be changed.
 strErrorUnknownFontSpecifier	=The font specifier '[1]' is unknown.
 strErrorFontDoesntExist			=The font combination '[1]' doesn't exist.
@@ -73,86 +142,64 @@ intTooltipDriftX			=30
 intTooltipDriftY			=30
 
 ; Tooltip text for the various tooltips
-strTooltip_General				=%keyGeneral%	General Math
-strTooltip_Set					=%keySetTheory%	Set Theory
-strTooltip_Greek				=%keyGreek%	Greek
-strTooltip_MiscOperators		=%keyOperators%	Misc. Operators
-strTooltip_Subscript			=%keySubscript%	Subscript
-strTooltip_Superscript			=%keySuperscript%	Superscript
-strTooltip_LowerDiacritic		=%keyLowerDiacritic%	Lower Diacritic
-strTooltip_UpperDiacritic		=%keyUpperDiacritic%	Upper Diacritic
-strTooltip_Escape				=%keyBacktick%	Literal 2 backticks ````
-strTooltip_LiteralQ				=%keyScriptMarker%	Literal %strScriptMarker%
-strTooltip_Negation				=%keyNegation%	Negate previous symbol
-strTooltip_Extra				=%keyExtra%	Advanced form of previous symbol
+
 strTooltip_Font					:=keyFont "	Previous symbol with different font"
 strTooltip_LiteralTab			=Tab	A literal tab indentation character.
-;Appear in the font tooltip
-strTooltip_Bold 	=b	Bold font
-strTooltip_Italic 	=i	Italic font
-strTooltip_Script 	=s	Script/cursive font
-strTooltip_Fraktur 	=f	Fraktur font
-strTooltip_Sans 	=a	Sans serif font
-strTooltip_Double 	=d	Double-struck font
-strTooltip_Mono 	=t	Typewriter font
-strTooltip_Space	=[space]	Terminates the command
-
+strTooltip_LiteralQ				=%keyScriptMarker%	Literal %strScriptMarker%
+strTooltip_Escape				=%keyBacktick%	Literal 2 backticks ````
+strTooltip_Unicode				=%keyUnicode%	Outputs a character using its Unicode code point.
 ; Controls whether every key press should be logged ot strLastChar.
 boolIsTrackingEveryKeyPress:=true
 
-;Tooltip that appears when the user types the active sequence
-MainToolTip=
-(	
-%strTooltip_General%
-%strTooltip_Set%
-%strTooltip_Greek%
-%strTooltip_MiscOperators%
-%strTooltip_Subscript%
-%strTooltip_Superscript%
-%strTooltip_LowerDiacritic%
-%strTooltip_UpperDiacritic%
-%strTooltip_Negation%
-%strTooltip_Extra%
-%strTooltip_Font%
+TooltipForBindings(bindings) 
+{
+	desc:=bindings.description ? bindings.description : bindings.Name
+	return bindings.key "`t" desc
+}
+
+MakeMainToolTip() {
+	global
+	
+	local tt := ""
+	for key, layout in layouts 
+	{
+		tt:=tt="" ? tt : tt "`r`n"
+		tt:=tt TooltipForBindings(layout)
+	}
+	
+	for key, modifier in modifiers
+	{
+		tt:=tt "`r`n" TooltipForBindings(modifier)
+	}
+	tt=
+(
+%tt%
+%strTooltip_Font%	
+
 %strTooltip_Escape%
 )
+	return tt
+}
+;Tooltip that appears when the user types the active sequence
+MainToolTip:=MakeMainToolTip()
 
 ;Tooltip that appears when the user enters font mode
 FontsToolTip=
 (
-%strTooltip_Bold%
-%strTooltip_Italic%
-%strTooltip_Script%
-%strTooltip_Fraktur%
-%strTooltip_Sans%
-%strTooltip_Double%
-%strTooltip_Mono%
-%strTooltip_Space%
-You can apply several fonts together and terminate with a space.
+b	Bold font
+i	Italic fontYou can apply several fonts together and terminate with a space.
+s	Script/cursive font)
+f	Fraktur font
+a	Sans serif font
+d	Double-struck font
+t	Typewriter font
+[space]	Terminates the command
 )
-; EndRegion
-; BeginRegion One character layouts mpLayouts
-mpLayouts 				:= {}
-mpLayouts[keyGeneral] 			:= {tooltip:strTooltip_General, 				mappings:mpGeneral}
-mpLayouts[keySetTheory] 		:= {tooltip:strTooltip_Set, 					mappings:mpSetTheory}
-mpLayouts[keyGreek] 			:= {tooltip:strTooltip_Greek, 					mappings:mpGreek}
-mpLayouts[keyOperators] 		:= {tooltip:strTooltip_MiscOperators, 			mappings:mpMiscOperators}
-mpLayouts[keySubscript] 		:= {tooltip:strTooltip_Subscript, 				mappings:mpSubscripts}
-mpLayouts[keySuperscript] 		:= {tooltip:strTooltip_Superscript, 			mappings:mpSuperscripts}
-mpLayouts[keyUpperDiacritic] 	:= {tooltip:strTooltip_UpperDiacritic, 			mappings:mpUpDiacritics}
-mpLayouts[keyLowerDiacritic] 	:= {tooltip:strTooltip_LowerDiacritic, 			mappings:mpDownDiacritics}
-
-mpMods:={}
-mpMods[keyNegation] := {mappings:mpModNegations, error:strErrorNoNegationFound}
-mpMods[keyExtra] 	:= {mappings:mpModExtras, error:strErrorNoExtraFound}
-			
 mpDirectLayout:={}
 mpDirectLayout[keyBacktick]		:= "````"
 mpDirectLayout[keyScriptMarker]:=strScriptMarker
 
 ; EndRegion
-setNeverTrack				:= {}
-setNeverTrack["``"] 		:= 1
 
 setAlsoTrack:={backspace:1, space:1, enter:1, left:1, right:1, up:1, down:1, home:1, end:1, pgup:1, pgdn:1, del:1, ins:1}
 
@@ -226,7 +273,7 @@ FindGroupFor(character)
 }
 
 ; Displays a tooltip with the settings used by this script.
-TooltipFor(text, time, n = 1)
+MyTooltip(text, time, n = 1)
 {
 	global
 	local factor := StrLen(text) / 15 ; So longer tooltips will display longer!
@@ -315,7 +362,7 @@ MyInput(Options="L1", extraEndKeys="{backspace}")
 Loop, % 127 - 33
 {
 	RealIndex := A_Index + 33
-	if !setNeverTrack[Chr(RealIndex)]
+	if Chr(RealIndex) != "``"
 	{
 		c:=Chr(RealIndex)
 		if c is upper 
@@ -334,7 +381,7 @@ for key, value in setAlsoTrack
 :*?:````::
 	; We need to stop logging keys while this script runs, because the control keys will mess up the strLastChar variable.
 	boolIsTrackingEveryKeyPress:=false
-	TooltipFor(MainToolTip, intInfoTooltipTime)
+	MyTooltip(MainToolTip, intInfoTooltipTime)
 	scriptMarkerLen:=StrLen(strScriptMarker)
 	; Output the script marker
 	SendInput, %strScriptMarker% 
@@ -345,15 +392,15 @@ for key, value in setAlsoTrack
 	{
 		command:=keyBacktick
 	}
-	if mpLayouts[command]
+	if layouts[command]
 	{
 		;;Open one of the layouts, e.g. general, set theory, mpSubscripts, etc.
-		TooltipFor(mpLayouts[command].tooltip, intInfoTooltipTime)
+		MyTooltip(TooltipForBindings(layouts[command]), intInfoTooltipTime)
 		SendInput, %command%:
 		bsCount:=StrLen(strScriptMarker)+StrLen(command)+1
 		x:=MyInput()
 		SendInput, {BS %bsCount%}
-		Mapping:=mpLayouts[command].mappings.item(x)
+		Mapping:=layouts[command].Bindings.item(x)
 		if Mapping
 		{
 			strLastChar:=Mapping
@@ -362,8 +409,8 @@ for key, value in setAlsoTrack
 		}
 		else
 		{
-			msg=%strErrorKeyNotFound% (Key: %x%)
-			TooltipFor(msg, intErrorTooltipTime)
+			msg:=String_Format(strErrorKeyNotFound, Mapping.name) " (Key: " x ")"
+			MyTooltip(msg, intErrorTooltipTime)
 		}
 	}
 	else if (command = keyFont)
@@ -373,18 +420,18 @@ for key, value in setAlsoTrack
 		if ((setAlsoTrack[strLastChar]) or (strLastChar = "None")) 
 		{
 			;Basically, if the last character is invalid or doesn't exist.
-			TooltipFor("Last character unknown", intErrorTooltipTime)
+			MyTooltip(strErrorLastCharUnknown, intErrorTooltipTime)
 			SendInput, {backspace %scriptMarkerLen%}
 			goto exit
 		}
 		message:=""
 		SendInput, %command%:
-		TooltipFor(FontsTooltip, intInfoTooltipTime)
+		MyTooltip(FontsTooltip, intInfoTooltipTime)
 		fontString:=MyInput("L4 V", "{space}")
 		bsCount:=StrLen(fontString)+scriptMarkerLen+StrLen(command)+2
 		if (!fontString) 
 		{
-			TooltipFor("No font specified. (Input: " strLastChar ")", intErrorTooltipTime)
+			MyTooltip("No font specified. (Input: " strLastChar ")", intErrorTooltipTime)
 			SendInput, {backspace %bsCount%}
 			return
 		}
@@ -409,15 +456,14 @@ for key, value in setAlsoTrack
 			;It's possible to have a message without there being a total error.
 			message:=message ? message : "Unknown error"
 			message=%message% (previous: %strLastChar%, input:%fontString%)
-			TooltipFor(message, intErrorTooltipTime)
+			MyTooltip(message, intErrorTooltipTime)
 		}
 	}
-	else if mpMods[command]
+	else if modifiers[command]
 	{
 		;;Modifies the previous character
-		
-		Mappings:=mpMods[command]
-		Negated:=Mappings.mappings[strLastChar]
+		Mappings:=modifiers[command]
+		Negated:=Mappings.bindings.item(strLastChar)
 		if Negated
 		{
 			strLastChar=%Negated%
@@ -426,8 +472,16 @@ for key, value in setAlsoTrack
 		}
 		else
 		{
-			msg:=Mappings.error "(previous: " strLastChar ")"
-			TooltipFor(msg, intErrorTooltipTime)
+			name:=Mappings.name
+			if StrLen(strLastChar) != 1
+			{
+				msg:=strErrorLastCharUnknown
+			}
+			else
+			{
+				msg=Can't modify '%strLastChar%' with '%name%'.
+			}
+			MyTooltip(msg, intErrorTooltipTime)
 			SendInput, {backspace %scriptMarkerLen%}
 		}
 	}
@@ -446,7 +500,7 @@ for key, value in setAlsoTrack
 	else
 	{
 		msg=%strErrorLayoutNotFound% (command: %command%)
-		TooltipFor(msg, intErrorTooltipTime)
+		MyTooltip(msg, intErrorTooltipTime)
 		bsCount:=StrLen(strScriptMarker)
 		SendInput, {backspace %bsCount%}
 	}
