@@ -1,56 +1,47 @@
 # Math Keyboard
 ---
-Latest Version: **0.6.0**   **[Download](https://github.com/GregRos/MathKeyboard/releases/download/v0.6.0/Math.Keyboard.0.6.0.zip)**   *[View Mappings](http://1drv.ms/1PFBJpX)*
+Latest Version: **0.6.3**   **[Download](https://github.com/GregRos/MathKeyboard/releases/download/v0.6.0/Math.Keyboard.0.6.0.zip)**   *[View Mappings](http://1drv.ms/1PFBJpX)*   [GitHub Site](http://gregros.github.io/MathKeyboard)
 
 ---
-A program for easily typing math characters, without interfering with normal typing, implemented using AutoHotKey (AHK), released into the public domain. Requires Windows, and is designed for the standard US keyboard layout.
-
+A program for easily typing math characters, without interfering with normal typing, implemented using AutoHotKey (AHK), released into the public domain. It's designed for the standard US QWERTY keyboard layout, although it should work with other latin layouts as well, and requires Windows.
 
 ## Features
-* Doesn't interfere with normal keyboard use, like typing and hotkeys.
+* Doesn't interfere with normal keyboard use, like normal typing, hotkeys, and video gaming.
 * Uses mnemonic key combinations.
+* Doesn't require extreme finger gymnastics and doesn't use complicated modifiers. Symbols are typed using concise commands.
 * Uses plain-text Unicode characters, so most of it works anywhere, like email, word processors, notepad, and chat.
-* Informative tooltips, containing unobtrusive error messages.
-* Fairly easy to add key mappings of your own.
+* Provides legible error messages and reminders in the form of tooltips.
+* Fairly easy to add key mappings of your own. You don't need to mess around with the code to do it.
 * You don't need to install anything to get it to work.
 
-## Overview
-It features multiple simple layouts, activated by key combinations, each layout having a certain theme, and in each layout the same key can be mapped to a different character. You can this program in Word, email, chat, and LaTeX (though that last one requires a bit of configuration), and anywhere in general that supports a decent range of unicode characters.
+## Available Symbols
+While it's fairly simple to add your own key mappings, layouts, and commands, currently the following symbols are supported:
 
-The exception is the mathematical fonts feature, which is incompatible with some applications, though it still works in many.
-	
-Examples of the symbols you can type are: 
-* The entire greek alphabet: α, β, γ, ...
-* Various operators, such as ∫, ∬, ≡, ≈, ≃, ...
-* Arrows and similar symbols, e.g. → ← ⇒ ⇐
-* Subscripts and superscripts, such as a₁, a₂, b¹, b³, aⁱ, aⁿ (all numbers, but only some letters are available)
-* Some combining diacritics, such as a̱, b̳, č, d̆, ẹ, f̤
-* Some wider, such as ] [ `em space`, ] [ `en space` (not distinguishable in all fonts, but the `em` space is twice as large).
-* Mathematical font characters, such as the ones visible here http://mathb.in/34748. Note that many applications are incompatible with them. See the font section for more information.
+1. The entire greek alphabet, such as: **α, β, ...**
+2. Common mathematical symbols and operators, such as: **∫, ∬, ∑, ∆**
+3. Symbols for common sets, such as: **ℤ, ℝ, ℕ**
+4. Subscripts and superscripts, such as: **A₂, B³, Bᴺ, ...**
+5. (Occasional compatibility issues) Combining diacritics, symbols that go above or below other characters. For example: **A̅, B̲, C̣, ...**
+6. (Frequent compatibility issues) Characters with special fonts, such as bold and italic letters. They aren't consistently visible unless you're using a mathematical font. 
 
-You can find a mostly full overview of the mappings in the link above, which opens a Microsoft Excel document using Office Live (I ran into problems when trying to use Google Docs).
+Obviously, the keyboard cannot offer the same advanced formatting capabilities or wealth of symbols as LaTeX. Don't expect the ability to typeset fractions or something.
+
 ## Requirements
 Requires Windows, sadly. It was tested on Windows 8.1, but should work on any version Vista and up.
 
-You don't need to install/have anything installed on your computer. 
-
-However, you try to make sure you have a font that can render these characters. While many fonts can render most characters such as operators, greek characters, combining diacritics, and so forth, the mathematical font characters require a math font like Cambria Math (proprietary font that comes with Office), [STIX Math](http://sourceforge.net/projects/stixfonts/), [XITS Math](https://github.com/khaledhosny/xits-math), or similar.
+Although most characters can be rendered using fairly common fonts, some of the more intricate characters such as mathematical font characters require a math font to render properly. Examples are Cambria Math (which comes with office), [STIX Math](http://sourceforge.net/projects/stixfonts/), [XITS Math](https://github.com/khaledhosny/xits-math), or similar.
 
 ## How to Run
-Just click on the executable file to run the program. The program should appear as a tray icon. A context menu provides various options, including help (which links to this page), and key mappings (which links to the google sheet).
+It's an `.exe` file. You click it.
 
-The script is pretty uninstrusive, though you probably shouldn't play video games with it running. If you want to have it start automatically with Windows, you need to put a shortcut to the executable to the following folder:
+There is an option to have it auto-start with Windows.
 
-	C:\Users\[***YOUR USER FOLDER***]\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+## How to Use
+This program works using concise commands that either activate a specific layout that alters the next key you press (turning `s` to `∫`), or modifies the last character that was typed (turning a `=` to `≠`)
 
-## Guide
-The keyboard doesn't just replace your keys with other symbols. That would be very difficult to use. Instead, it uses the sequence \`\` (two back-ticks), which is called the active sequence. In order to remind you you're using the keyboard, it replaces those symbols with `ℳ:`. The next key you type will be interpreted as a command to the keyboard, which can either enable a specific layout or change the last key you typed into a different, related form.
+All commands begin with two backticks \`\`, which are converted into the string `ℳ:` to remind you you're using a math command. You then follow it with a single key, from the table below (also available in a more readable form in the spreadsheet).
 
-The keys you type are chosen sometimes because they are related to the command, but mainly because they are all on the left side of the keyboard, which means the combination \`\`[Key] can be typed quickly with one hand.
-
-In order to get \`\`, you need to escape the `ℳ:` symbols by typing an additional \` (back-tick).
-
-The following is a list of possible commands. Most of it also appears as a tooltip when you use the keyboard.
+The following is a list of possible commands. Most of it also appears as a tooltip when you use the keyboard, and a more detailed and readable version is available in the spreadsheet.
 	Layouts
 	--------
 	r   General layout, includes calculus, operators, ...
@@ -65,9 +56,10 @@ The following is a list of possible commands. Most of it also appears as a toolt
 	Modifiers
 	--------
 	x	Negates the previous symbol, such as turning = into ≠
-	w	Changes the previous symbol to a related larger or more complex symbol.
+	w	Changes the previous symbol to a related larger or more complex symbol, 
+		such as turning ∫ into ∭.
 	f	Adds a mathematical font to the previous character 
-		 (incompatbile with many applications; read more about this below)
+		(can be incompatible with some applications)
 	
 	Literals
 	--------
@@ -79,31 +71,27 @@ The following is a list of possible commands. Most of it also appears as a toolt
 		 the tab keyboard key already means something else.
 
 ### Layouts
-Having chosen a layout, the next single key you type will be modified according to that layout. These key mappings are mnemonic, with respect to one of the labels on the key. For example, the common sets ℝ, ℕ, ℤ are typed in the set-theory layout using `r`, `n`, and `z`. The relations `≤, ≪, ≥, ≫` are typed using the keys `, < . >` because related relations appear as labels on those keys.
-
-In addition, as in the case `',' → '≤' '<' → '≪'`, using the shift or upper case version of a certain key maps to a related symbol which is larger, more advanced, or more obscure than the normal symbol. 
+A layout command modifies the next single key you type, outputting a different symbol. The mapping is mnemonic, with `s` mapping to `∫` for example. In addition, the capital or shift version of a key usually maps to a symbol related to the ordinary version. For example, `S` maps to `∬`.
 
 ### Modifiers
-Typing one of the following keys after \`\` modifies the previous key, replacing it with a related form. The following modifiers are currently available:
-	
-	x	Negation	 Negates the previous character, turning = into ≠.
-	w	Extra		Switches to an advanced form of the previous charcter, such as turning ∫ into ∭ 
-					  (∬ is produced by typing ``r + capital S)
-Not all keys have these forms. For example, it doesn't make sense to negate the ∫ symbol, and only digits, and latin and greek letters support fonts. 
+Typing a modifier command changes the last symbol you typed into a related form, such as by negating it or replacing it with a more advanced form. For example, `=` is negated (using `x`) to yield `≠`, while `∫` is expanded (using `w`) to yield `∭`. The old symbol is erased. 
 
-The effect each modifier has on each key can be seen in the Google Sheets table linked above. Note that modifier keys create symbols that can be modified again, although the only combination that is currently used is `Extra+Negation`, such as `d+'>'→'⊳' `→ `'⊳'+w→'⊵'` → `'⊵'+x→'⋭` (the font used on GitHub confuses `⊲` with `⊳`).
+The program can't tell which symbol you want to modify if you use navigation keys like `End`, move the caret, or use backspace. You can only modify the symbol you've typed just now.
+
+It's possible to combine multiple modifiers sometimes. Consult the excel spreadsheet for specific information. When combining `advanced` and `negation`, `advanced` normally comes first.
+
+It's important to note that modifiers can affect characters you type normally, as well as the symbols produced by this script. However, if you have another way of typing these special characters, it probably won't work.
 
 ### Fonts
 ---
-#### !!!! IMPORTANT !!!!
+###### !!!! IMPORTANT !!!!
 
-This feature is frequently incompatible with some applications. This is because applications aren't designed to handle these sorts of characters. Errors you could experience using this feature:
+This feature is incompatible with some applications, and usually requires mathematical fonts to render correctly. You might experience the following issues:
 
-1. Problem with rendering the characters, even if the font contains them.
-2. Backspace deletes "half" of a character, and consequently some features of the script don't function exactly as they should.
-3. Appear as asian characters.
+1. Characters appear as boxes, question marks, chinese characters, or other strange symbols. Sometimes multiple boxes appear, rather than just one.
+2. Backspace deletes 'half' of a character, leaving some kind of strange symbol in its wake (usually also a question mark). As a consequence, the program doesn't function correctly.
 
-Furthermore, many people simply don't have to fonts to display these characters.
+These are caused by the technical limitations of the text editor or word processor you're using, and can't be fixed.  
 
 ---
 
@@ -119,21 +107,18 @@ After hitting the font key, you can press one of the following keys to modify th
 	a	Sans-serif
 	t	Typewriter
 	
-The command allows you to input multiple characters at once, and a symbol can have several font combinations, such as bold+italic, bold+script, and so forth. However, the availability of font combinations depends on the availability of the appropriate character. Most of these characters come from the [Mathematical Alphanumeric Symbols](http://jrgraphix.net/r/Unicode/1D400-1D7FF) block, so characters with the appropriate font combination must be present there, or somewhere else in the Unicode character set. The available font combinations for each type of character are listed in the spreadsheet.
+Digits, Latin letters, and Greek letters can be modified this way. Both lower-case and upper-case versions can be modified.
 
-Fonts are only available for digits, latin letters, and greek letters, although the character block does include a few other letter-like symbols that have fonts. 
+You can type several font specifiers at once, yielding characters that are both **Bold** and *Italic*, for example. You terminate the command by pressing `[space]`. You can add fonts to characters that already have fonts as well. You can first make a character bold, and then make it italic.
 
-You can modify a character with fonts iteratively, but you should be aware that for some characters, only combination fonts exist. For example, greek characters can be bold+sans serif+italic, but cannot be italic+sans serif.
+Not all font combinations are available for all symbols. See the spreadsheet for more information. Also, sometimes combinations of 3 fonts are available, but some combinations of 2 of those fonts aren't. 
 
-### Errors
-If there is an error, a tooltip appears and informs you of it, along with the character that caused the error. Then your input is either erased or turned into its literal form.
+The characters are mainly taken from [Mathematical Alphanumeric Symbols](http://jrgraphix.net/r/Unicode/1D400-1D7FF). However, there are a few characters that don't appear in that block, and a few of the characters that appear aren't supported right now (generally the more obscure symbols or operators).
 
-### Modifying the Key Bindings
+## Modifying the Key Bindings
 
-This script comes with a configuration file called `Bindings.json`. This file contains the key/character mappings for the layouts and modifiers, including the keys that enable the different layouts. The program looks for this file in its own folder, and one is provided as part of the download. 
+This script comes with a configuration file called `Bindings.json`. This file contains the key/character mappings for the layouts and modifiers, including the keys that enable the different layouts. The program looks for this file in its own folder. The file is automatically generated when you first run the program.
 
-You can edit the file, taking care to make sure everything is correct JSON, and add your own key bindings without recompiling or messing around with the code in general. You can even add your own layouts and modifiers. 
+You can edit the file, taking care to follow the syntax that's already there, and add your own key bindings without recompiling or otherwise messing around with the code. You can even add your own layouts and modifiers. 
 
-If it's not found, the program just uses the default bindings file, which is embedded inside it, so the file isn't required. However, the script will probably crash if you provide an invalid `Bindings.json` file.
-
-The escape sequences (e.g. \`\`\`, \`\`!, \`\`[Tab]) and the font key bindings are hard-coded due to complicated reasons, and can't be modified without modifying the code.
+The escape sequences (e.g. \`\`\`, \`\`!, \`\`[Tab]) and the font key bindings are hard-coded right now, and can't be modified without modifying the code.

@@ -1,6 +1,6 @@
 ﻿#SingleInstance Force
 
-_Version=0.6.0
+_Version=0.6.3
 
 ; 15th of May, 2015
 ; MathKeyboard, written by Gregory Rosenbaum 
@@ -11,9 +11,13 @@ _Version=0.6.0
 ; Edit and distribute this file freely, including by removing this "copyright" notice. You can even replace my name with yours. 
 ; Or you can keep my name, if you're feeling nice.
 
+AutoStartShortcutPath:=A_AppData "\Microsoft\Windows\Start Menu\Programs\Startup\Math Keyboard.lnk"
+
+IsAutoStart:=FileExist(AutoStartShortcutPath)
+
 HelpMe() 
 {
-	Run http://gregros.github.io/MathKeyboard/index.html#Guide
+	Run http://gregros.github.io/MathKeyboard/index.html
 }
 
 Mappings()
@@ -21,18 +25,43 @@ Mappings()
 	Run http://1drv.ms/1PFBJpX
 }
 
+ToggleAutoStart()
+{
+	global
+	
+	if (IsAutoStart) 
+	{
+		FileDelete, %AutoStartShortcutPath%
+		IsAutoStart=
+	}
+	else
+	{
+		FileCreateShortcut, %A_ScriptFullPath%, %AutoStartShortcutPath%, %A_ScriptDir%,  
+		IsAutoStart=true
+	}
+	Menu, Tray, ToggleCheck, Auto Start
+}
+
 Menu, Tray, NoStandard
 Menu, Tray, Tip, Math Keyboard! v%_version%
 Menu, Tray, Add, Help!, HelpMe
 Menu, Tray, Add, View Mappings, Mappings 
+Menu, Tray, Add, Auto Start, ToggleAutoStart
 Menu, Tray, Add
 Menu, Tray, Standard
+
+
+if (IsAutoStart)
+{
+	Menu, Tray, Check, Auto Start
+}
+
 IfExist, Images\icon.ico
 {
 	Menu, Tray, Icon, Images\icon.ico, 1
 }
 
-; Contains the default Bindings.json file.
+; Contains bindings for fonts.
 #include Bindings.ahk
 ; Lib for working with JSON.
 #include JSON.ahk
@@ -101,14 +130,12 @@ LoadBindings(bindings) {
 	}	
 }
 
-IfExist, Bindings.json
+IfNotExist, Bindings.json
 {
-	FileRead, jsonBindings, *P65001 Bindings.json ;65001 is the UTF-8 codepage.	
+	FileInstall, Bindings.json, Bindings.json
 }
-else
-{
-	jsonBindings:=jsonDefaultBindings
-}
+
+FileRead, jsonBindings, *P65001 Bindings.json ;65001 is the UTF-8 codepage.	
 
 LoadBindings(jsonBindings)
 
@@ -409,7 +436,7 @@ for key, value in setAlsoTrack
 		}
 		else
 		{
-			msg:=String_Format(strErrorKeyNotFound, Mapping.name) " (Key: " x ")"
+			msg:=String_Format(strErrorKeyNotFound, layouts[command].name) " (Key: " x ")"
 			MyTooltip(msg, intErrorTooltipTime)
 		}
 	}
