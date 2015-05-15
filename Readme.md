@@ -42,6 +42,7 @@ This program works using concise commands that either activate a specific layout
 All commands begin with two backticks \`\`, which are converted into the string `ℳ:` to remind you you're using a math command. You then follow it with a single key, from the table below (also available in a more readable form in the spreadsheet).
 
 The following is a list of possible commands. Most of it also appears as a tooltip when you use the keyboard, and a more detailed and readable version is available in the spreadsheet.
+
 	Layouts
 	--------
 	r   General layout, includes calculus, operators, ...
