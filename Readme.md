@@ -1,6 +1,6 @@
 # Math Keyboard
 ---
-Latest Version: **0.5.4**   **[Download](https://github.com/GregRos/MathKeyboard/releases/download/v0.5.4/Math.Keyboard.0.5.4.exe)**   *[View Mappings](http://1drv.ms/1PFBJpX)*
+Latest Version: **0.6.0**   **[Download](https://github.com/GregRos/MathKeyboard/releases/download/v0.6.0/Math.Keyboard.0.6.0.zip)**   *[View Mappings](http://1drv.ms/1PFBJpX)*
 
 ---
 A program for easily typing math characters, without interfering with normal typing, implemented using AutoHotKey (AHK), released into the public domain. Requires Windows, and is designed for the standard US keyboard layout.
