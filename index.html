@@ -14,80 +14,75 @@
       <h1 class="project-name">Math Keyboard</h1>
       <h2 class="project-tagline">A program for typing unicode math symbols using key combinations.</h2>
       <a href="https://github.com/GregRos/MathKeyboard" class="btn">View on GitHub</a>
-      <a href="https://github.com/GregRos/MathKeyboard/releases/download/v0.6.0/Math.Keyboard.0.6.0.zip" class="btn">Download Latest (0.6.0)</a>
+      <a href="https://github.com/GregRos/MathKeyboard/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/GregRos/MathKeyboard/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
       <hr>
 
-<p>Latest Version: <strong>0.6.0</strong>   <strong><a href="https://github.com/GregRos/MathKeyboard/releases/download/v0.6.0/Math.Keyboard.0.6.0.zip">Download</a></strong>   <em><a href="http://1drv.ms/1PFBJpX">View Mappings</a></em></p>
+<p>Latest Version: <strong>0.6.3</strong>   <strong><a href="https://github.com/GregRos/MathKeyboard/releases/download/v0.6.3/Math.Keyboard.0.6.3.exe">Download</a></strong>   <em><a href="http://1drv.ms/1PFBJpX">View Mappings</a></em>   <a href="http://gregros.github.io/MathKeyboard">GitHub Site</a></p>
 
 <hr>
 
-<p>A program for easily typing math characters, without interfering with normal typing, implemented using AutoHotKey (AHK), released into the public domain. Requires Windows, and is designed for the standard US keyboard layout.</p>
+<p>A program for easily typing math characters, without interfering with normal typing, implemented using AutoHotKey (AHK), released into the public domain. It's designed for the standard US QWERTY keyboard layout, although it should work with other latin layouts as well, and requires Windows.</p>
 
 <h2>
 <a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
 
 <ul>
-<li>Doesn't interfere with normal keyboard use, like typing and hotkeys.</li>
+<li>Doesn't interfere with normal keyboard use, like normal typing, hotkeys, and video gaming.</li>
 <li>Uses mnemonic key combinations.</li>
+<li>Doesn't require extreme finger gymnastics and doesn't use complicated modifiers. Symbols are typed using concise commands.</li>
 <li>Uses plain-text Unicode characters, so most of it works anywhere, like email, word processors, notepad, and chat.</li>
-<li>Informative tooltips, containing unobtrusive error messages.</li>
-<li>Fairly easy to add key mappings of your own.</li>
+<li>Provides legible error messages and reminders in the form of tooltips.</li>
+<li>Fairly easy to add key mappings of your own. You don't need to mess around with the code to do it.</li>
 <li>You don't need to install anything to get it to work.</li>
 </ul>
 
 <h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+<a id="available-symbols" class="anchor" href="#available-symbols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Available Symbols</h2>
 
-<p>It features multiple simple layouts, activated by key combinations, each layout having a certain theme, and in each layout the same key can be mapped to a different character. You can this program in Word, email, chat, and LaTeX (though that last one requires a bit of configuration), and anywhere in general that supports a decent range of unicode characters.</p>
+<p>While it's fairly simple to add your own key mappings, layouts, and commands, currently the following symbols are supported:</p>
 
-<p>The exception is the mathematical fonts feature, which is incompatible with some applications, though it still works in many.</p>
+<ol>
+<li>The entire greek alphabet, such as: <strong>α, β, ...</strong>
+</li>
+<li>Common mathematical symbols and operators, such as: <strong>∫, ∬, ∑, ∆</strong>
+</li>
+<li>Symbols for common sets, such as: <strong>ℤ, ℝ, ℕ</strong>
+</li>
+<li>Subscripts and superscripts, such as: <strong>A₂, B³, Bᴺ, ...</strong>
+</li>
+<li>(Occasional compatibility issues) Combining diacritics, symbols that go above or below other characters. For example: <strong>A̅, B̲, C̣, ...</strong>
+</li>
+<li>(Frequent compatibility issues) Characters with special fonts, such as bold and italic letters. They aren't consistently visible unless you're using a mathematical font. </li>
+</ol>
 
-<p>Examples of the symbols you can type are: </p>
-
-<ul>
-<li>The entire greek alphabet: α, β, γ, ...</li>
-<li>Various operators, such as ∫, ∬, ≡, ≈, ≃, ...</li>
-<li>Arrows and similar symbols, e.g. → ← ⇒ ⇐</li>
-<li>Subscripts and superscripts, such as a₁, a₂, b¹, b³, aⁱ, aⁿ (all numbers, but only some letters are available)</li>
-<li>Some combining diacritics, such as a̱, b̳, č, d̆, ẹ, f̤</li>
-<li>Some wider, such as ] [ <code>em space</code>, ] [ <code>en space</code> (not distinguishable in all fonts, but the <code>em</code> space is twice as large).</li>
-<li>Mathematical font characters, such as the ones visible here <a href="http://mathb.in/34748">http://mathb.in/34748</a>. Note that many applications are incompatible with them. See the font section for more information.</li>
-</ul>
-
-<p>You can find a mostly full overview of the mappings in the link above, which opens a Microsoft Excel document using Office Live (I ran into problems when trying to use Google Docs).</p>
+<p>Obviously, the keyboard cannot offer the same advanced formatting capabilities or wealth of symbols as LaTeX. Don't expect the ability to typeset fractions or something.</p>
 
 <h2>
 <a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
 
 <p>Requires Windows, sadly. It was tested on Windows 8.1, but should work on any version Vista and up.</p>
 
-<p>You don't need to install/have anything installed on your computer. </p>
-
-<p>However, you try to make sure you have a font that can render these characters. While many fonts can render most characters such as operators, greek characters, combining diacritics, and so forth, the mathematical font characters require a math font like Cambria Math (proprietary font that comes with Office), <a href="http://sourceforge.net/projects/stixfonts/">STIX Math</a>, <a href="https://github.com/khaledhosny/xits-math">XITS Math</a>, or similar.</p>
+<p>Although most characters can be rendered using fairly common fonts, some of the more intricate characters such as mathematical font characters require a math font to render properly. Examples are Cambria Math (which comes with office), <a href="http://sourceforge.net/projects/stixfonts/">STIX Math</a>, <a href="https://github.com/khaledhosny/xits-math">XITS Math</a>, or similar.</p>
 
 <h2>
 <a id="how-to-run" class="anchor" href="#how-to-run" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to Run</h2>
 
-<p>Just click on the executable file to run the program. The program should appear as a tray icon. A context menu provides various options, including help (which links to this page), and key mappings (which links to the google sheet).</p>
+<p>It's an <code>.exe</code> file. You click it.</p>
 
-<p>The script is pretty uninstrusive, though you probably shouldn't play video games with it running. If you want to have it start automatically with Windows, you need to put a shortcut to the executable to the following folder:</p>
-
-<pre><code>C:\Users\[***YOUR USER FOLDER***]\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
-</code></pre>
+<p>There is an option to have it auto-start with Windows.</p>
 
 <h2>
-<a id="guide" class="anchor" href="#guide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Guide</h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to Use</h2>
 
-<p>The keyboard doesn't just replace your keys with other symbols. That would be very difficult to use. Instead, it uses the sequence `` (two back-ticks), which is called the active sequence. In order to remind you you're using the keyboard, it replaces those symbols with <code>ℳ:</code>. The next key you type will be interpreted as a command to the keyboard, which can either enable a specific layout or change the last key you typed into a different, related form.</p>
+<p>This program works using concise commands that either activate a specific layout that alters the next key you press (turning <code>s</code> to <code>∫</code>), or modifies the last character that was typed (turning a <code>=</code> to <code>≠</code>)</p>
 
-<p>The keys you type are chosen sometimes because they are related to the command, but mainly because they are all on the left side of the keyboard, which means the combination ``[Key] can be typed quickly with one hand.</p>
+<p>All commands begin with two backticks ``, which are converted into the string <code>ℳ:</code> to remind you you're using a math command. You then follow it with a single key, from the table below (also available in a more readable form in the spreadsheet).</p>
 
-<p>In order to get ``, you need to escape the <code>ℳ:</code> symbols by typing an additional ` (back-tick).</p>
-
-<p>The following is a list of possible commands. Most of it also appears as a tooltip when you use the keyboard.
+<p>The following is a list of possible commands. Most of it also appears as a tooltip when you use the keyboard, and a more detailed and readable version is available in the spreadsheet.
     Layouts
     --------
     r   General layout, includes calculus, operators, ...
@@ -102,9 +97,10 @@
 <pre><code>Modifiers
 --------
 x   Negates the previous symbol, such as turning = into ≠
-w   Changes the previous symbol to a related larger or more complex symbol.
+w   Changes the previous symbol to a related larger or more complex symbol, 
+    such as turning ∫ into ∭.
 f   Adds a mathematical font to the previous character 
-     (incompatbile with many applications; read more about this below)
+    (can be incompatible with some applications)
 
 Literals
 --------
@@ -119,41 +115,35 @@ Literals
 <h3>
 <a id="layouts" class="anchor" href="#layouts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layouts</h3>
 
-<p>Having chosen a layout, the next single key you type will be modified according to that layout. These key mappings are mnemonic, with respect to one of the labels on the key. For example, the common sets ℝ, ℕ, ℤ are typed in the set-theory layout using <code>r</code>, <code>n</code>, and <code>z</code>. The relations <code>≤, ≪, ≥, ≫</code> are typed using the keys <code>, &lt; . &gt;</code> because related relations appear as labels on those keys.</p>
-
-<p>In addition, as in the case <code>',' → '≤' '&lt;' → '≪'</code>, using the shift or upper case version of a certain key maps to a related symbol which is larger, more advanced, or more obscure than the normal symbol. </p>
+<p>A layout command modifies the next single key you type, outputting a different symbol. The mapping is mnemonic, with <code>s</code> mapping to <code>∫</code> for example. In addition, the capital or shift version of a key usually maps to a symbol related to the ordinary version. For example, <code>S</code> maps to <code>∬</code>.</p>
 
 <h3>
 <a id="modifiers" class="anchor" href="#modifiers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modifiers</h3>
 
-<p>Typing one of the following keys after `` modifies the previous key, replacing it with a related form. The following modifiers are currently available:</p>
+<p>Typing a modifier command changes the last symbol you typed into a related form, such as by negating it or replacing it with a more advanced form. For example, <code>=</code> is negated (using <code>x</code>) to yield <code>≠</code>, while <code>∫</code> is expanded (using <code>w</code>) to yield <code>∭</code>. The old symbol is erased. </p>
 
-<pre><code>x   Negation     Negates the previous character, turning = into ≠.
-w   Extra       Switches to an advanced form of the previous charcter, such as turning ∫ into ∭ 
-                  (∬ is produced by typing ``r + capital S)
-</code></pre>
+<p>The program can't tell which symbol you want to modify if you use navigation keys like <code>End</code>, move the caret, or use backspace. You can only modify the symbol you've typed just now.</p>
 
-<p>Not all keys have these forms. For example, it doesn't make sense to negate the ∫ symbol, and only digits, and latin and greek letters support fonts. </p>
+<p>It's possible to combine multiple modifiers sometimes. Consult the excel spreadsheet for specific information. When combining <code>advanced</code> and <code>negation</code>, <code>advanced</code> normally comes first.</p>
 
-<p>The effect each modifier has on each key can be seen in the Google Sheets table linked above. Note that modifier keys create symbols that can be modified again, although the only combination that is currently used is <code>Extra+Negation</code>, such as <code>d+'&gt;'→'⊳'</code>→ <code>'⊳'+w→'⊵'</code> → <code>'⊵'+x→'⋭</code> (the font used on GitHub confuses <code>⊲</code> with <code>⊳</code>).</p>
+<p>It's important to note that modifiers can affect characters you type normally, as well as the symbols produced by this script. However, if you have another way of typing these special characters, it probably won't work.</p>
 
 <h3>
 <a id="fonts" class="anchor" href="#fonts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fonts</h3>
 
 <hr>
 
-<h4>
-<a id="-important-" class="anchor" href="#-important-" aria-hidden="true"><span class="octicon octicon-link"></span></a>!!!! IMPORTANT !!!!</h4>
+<h6>
+<a id="-important-" class="anchor" href="#-important-" aria-hidden="true"><span class="octicon octicon-link"></span></a>!!!! IMPORTANT !!!!</h6>
 
-<p>This feature is frequently incompatible with some applications. This is because applications aren't designed to handle these sorts of characters. Errors you could experience using this feature:</p>
+<p>This feature is incompatible with some applications, and usually requires mathematical fonts to render correctly. You might experience the following issues:</p>
 
 <ol>
-<li>Problem with rendering the characters, even if the font contains them.</li>
-<li>Backspace deletes "half" of a character, and consequently some features of the script don't function exactly as they should.</li>
-<li>Appear as asian characters.</li>
+<li>Characters appear as boxes, question marks, chinese characters, or other strange symbols. Sometimes multiple boxes appear, rather than just one.</li>
+<li>Backspace deletes 'half' of a character, leaving some kind of strange symbol in its wake (usually also a question mark). As a consequence, the program doesn't function correctly.</li>
 </ol>
 
-<p>Furthermore, many people simply don't have to fonts to display these characters.</p>
+<p>These are caused by the technical limitations of the text editor or word processor you're using, and can't be fixed.  </p>
 
 <hr>
 
@@ -170,27 +160,22 @@ a   Sans-serif
 t   Typewriter
 </code></pre>
 
-<p>The command allows you to input multiple characters at once, and a symbol can have several font combinations, such as bold+italic, bold+script, and so forth. However, the availability of font combinations depends on the availability of the appropriate character. Most of these characters come from the <a href="http://jrgraphix.net/r/Unicode/1D400-1D7FF">Mathematical Alphanumeric Symbols</a> block, so characters with the appropriate font combination must be present there, or somewhere else in the Unicode character set. The available font combinations for each type of character are listed in the spreadsheet.</p>
+<p>Digits, Latin letters, and Greek letters can be modified this way. Both lower-case and upper-case versions can be modified.</p>
 
-<p>Fonts are only available for digits, latin letters, and greek letters, although the character block does include a few other letter-like symbols that have fonts. </p>
+<p>You can type several font specifiers at once, yielding characters that are both <strong>Bold</strong> and <em>Italic</em>, for example. You terminate the command by pressing <code>[space]</code>. You can add fonts to characters that already have fonts as well. You can first make a character bold, and then make it italic.</p>
 
-<p>You can modify a character with fonts iteratively, but you should be aware that for some characters, only combination fonts exist. For example, greek characters can be bold+sans serif+italic, but cannot be italic+sans serif.</p>
+<p>Not all font combinations are available for all symbols. See the spreadsheet for more information. Also, sometimes combinations of 3 fonts are available, but some combinations of 2 of those fonts aren't. </p>
 
-<h3>
-<a id="errors" class="anchor" href="#errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Errors</h3>
+<p>The characters are mainly taken from <a href="http://jrgraphix.net/r/Unicode/1D400-1D7FF">Mathematical Alphanumeric Symbols</a>. However, there are a few characters that don't appear in that block, and a few of the characters that appear aren't supported right now (generally the more obscure symbols or operators).</p>
 
-<p>If there is an error, a tooltip appears and informs you of it, along with the character that caused the error. Then your input is either erased or turned into its literal form.</p>
+<h2>
+<a id="modifying-the-key-bindings" class="anchor" href="#modifying-the-key-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modifying the Key Bindings</h2>
 
-<h3>
-<a id="modifying-the-key-bindings" class="anchor" href="#modifying-the-key-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modifying the Key Bindings</h3>
+<p>This script comes with a configuration file called <code>Bindings.json</code>. This file contains the key/character mappings for the layouts and modifiers, including the keys that enable the different layouts. The program looks for this file in its own folder. The file is automatically generated when you first run the program.</p>
 
-<p>This script comes with a configuration file called <code>Bindings.json</code>. This file contains the key/character mappings for the layouts and modifiers, including the keys that enable the different layouts. The program looks for this file in its own folder, and one is provided as part of the download. </p>
+<p>You can edit the file, taking care to follow the syntax that's already there, and add your own key bindings without recompiling or otherwise messing around with the code. You can even add your own layouts and modifiers. </p>
 
-<p>You can edit the file, taking care to make sure everything is correct JSON, and add your own key bindings without recompiling or messing around with the code in general. You can even add your own layouts and modifiers. </p>
-
-<p>If it's not found, the program just uses the default bindings file, which is embedded inside it, so the file isn't required. However, the script will probably crash if you provide an invalid <code>Bindings.json</code> file.</p>
-
-<p>The escape sequences (e.g. ```, ``!, ``[Tab]) and the font key bindings are hard-coded due to complicated reasons, and can't be modified without modifying the code.</p>
+<p>The escape sequences (e.g. ```, ``!, ``[Tab]) and the font key bindings are hard-coded right now, and can't be modified without modifying the code.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/GregRos/MathKeyboard">Math Keyboard</a> is maintained by <a href="https://github.com/GregRos">GregRos</a>.</span>
