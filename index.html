@@ -14,12 +14,16 @@
       <h1 class="project-name">Math Keyboard</h1>
       <h2 class="project-tagline">A program for typing unicode math symbols using key combinations.</h2>
       <a href="https://github.com/GregRos/MathKeyboard" class="btn">View on GitHub</a>
-	  <a href="https://github.com/GregRos/MathKeyboard/releases/download/v0.5.4/Math.Keyboard.0.5.4.exe" class="btn">Download Latest (0.5.4)</a>
-	  <a href="http://1drv.ms/1PFBJpX" class="btn">View Mappings</a>
+      <a href="https://github.com/GregRos/MathKeyboard/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/GregRos/MathKeyboard/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
-     
+      <hr>
+
+<p>Latest Version: <strong>0.6.0</strong>   <strong><a href="https://github.com/GregRos/MathKeyboard/releases/download/v0.6.0/Math.Keyboard.0.6.0.zip">Download</a></strong>   <em><a href="http://1drv.ms/1PFBJpX">View Mappings</a></em></p>
+
+<hr>
 
 <p>A program for easily typing math characters, without interfering with normal typing, implemented using AutoHotKey (AHK), released into the public domain. Requires Windows, and is designed for the standard US keyboard layout.</p>
 
@@ -84,20 +88,19 @@
 
 <p>In order to get ``, you need to escape the <code>ℳ:</code> symbols by typing an additional ` (back-tick).</p>
 
-<p>The following is a list of possible commands. Most of it also appears as a tooltip when you use the keyboard.</p>
+<p>The following is a list of possible commands. Most of it also appears as a tooltip when you use the keyboard.
+    Layouts
+    --------
+    r   General layout, includes calculus, operators, ...
+    s   Logic and set theory layout
+    d   Misc operators/symbols layout
+    e   Greek layout
+    2   Subscript layout
+    3   Superscript layout
+    4   Lower combining diacritic layout (a̱)
+    5   Upper combining diacritic layout (ā)</p>
 
-<pre><code>Layouts
---------
-r   General layout, includes calculus, operators, ...
-s   Logic and set theory layout
-d   Misc operators/symbols layout
-e   Greek layout
-2   Subscript layout
-3   Superscript layout
-4   Lower combining diacritic layout (a̱)
-5   Upper combining diacritic layout (ā)
-
-Modifiers
+<pre><code>Modifiers
 --------
 x   Negates the previous symbol, such as turning = into ≠
 w   Changes the previous symbol to a related larger or more complex symbol.
@@ -180,11 +183,15 @@ t   Typewriter
 <p>If there is an error, a tooltip appears and informs you of it, along with the character that caused the error. Then your input is either erased or turned into its literal form.</p>
 
 <h3>
-<a id="modifying-the-keyboard" class="anchor" href="#modifying-the-keyboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modifying the Keyboard</h3>
+<a id="modifying-the-key-bindings" class="anchor" href="#modifying-the-key-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modifying the Key Bindings</h3>
 
-<p>Most of the user-editable stuff is located in <code>Bindings.ahk</code>. It's fairly simple to add your own key bindings to the existing layouts. You can just follow the structure of the file. </p>
+<p>This script comes with a configuration file called <code>Bindings.json</code>. This file contains the key/character mappings for the layouts and modifiers, including the keys that enable the different layouts. The program looks for this file in its own folder, and one is provided as part of the download. </p>
 
-<p>To add additional layouts some simple modifications of <code>MathKeyboard.ahk</code> are required.</p>
+<p>You can edit the file, taking care to make sure everything is correct JSON, and add your own key bindings without recompiling or messing around with the code in general. You can even add your own layouts and modifiers. </p>
+
+<p>If it's not found, the program just uses the default bindings file, which is embedded inside it, so the file isn't required. However, the script will probably crash if you provide an invalid <code>Bindings.json</code> file.</p>
+
+<p>The escape sequences (e.g. ```, ``!, ``[Tab]) and the font key bindings are hard-coded due to complicated reasons, and can't be modified without modifying the code.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/GregRos/MathKeyboard">Math Keyboard</a> is maintained by <a href="https://github.com/GregRos">GregRos</a>.</span>
