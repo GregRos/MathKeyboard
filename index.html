@@ -14,8 +14,7 @@
       <h1 class="project-name">Math Keyboard</h1>
       <h2 class="project-tagline">A program for typing unicode math symbols using key combinations.</h2>
       <a href="https://github.com/GregRos/MathKeyboard" class="btn">View on GitHub</a>
-      <a href="https://github.com/GregRos/MathKeyboard/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/GregRos/MathKeyboard/tarball/master" class="btn">Download .tar.gz</a>
+      <a href="https://github.com/GregRos/MathKeyboard/releases/download/v0.6.3/Math.Keyboard.0.6.3.exe" class="btn">Download Latest (0.6.3)</a>
     </section>
 
     <section class="main-content">
@@ -54,9 +53,9 @@
 </li>
 <li>Subscripts and superscripts, such as: <strong>A₂, B³, Bᴺ, ...</strong>
 </li>
-<li>(Occasional compatibility issues) Combining diacritics, symbols that go above or below other characters. For example: <strong>A̅, B̲, C̣, ...</strong>
+<li>(Occasional compatibility issues) Combining diacritics, symbols that go above or below other characters. For example: <strong><code>A̅, B̲, C̣, ...</code></strong>
 </li>
-<li>(Frequent compatibility issues) Characters with special fonts, such as bold and italic letters. They aren't consistently visible unless you're using a mathematical font. </li>
+<li>(Frequent compatibility issues) Characters with special fonts, such as bold and italic letters. They aren't consistently visible unless you're using a mathematical font. They are visible in the Fonts section in the spreadsheet. The font used here doesn't render them properly.</li>
 </ol>
 
 <p>Obviously, the keyboard cannot offer the same advanced formatting capabilities or wealth of symbols as LaTeX. Don't expect the ability to typeset fractions or something.</p>
@@ -83,18 +82,18 @@
 <p>All commands begin with two backticks ``, which are converted into the string <code>ℳ:</code> to remind you you're using a math command. You then follow it with a single key, from the table below (also available in a more readable form in the spreadsheet).</p>
 
 <p>The following is a list of possible commands. Most of it also appears as a tooltip when you use the keyboard, and a more detailed and readable version is available in the spreadsheet.
-    Layouts
-    --------
-    r   General layout, includes calculus, operators, ...
-    s   Logic and set theory layout
-    d   Misc operators/symbols layout
-    e   Greek layout
-    2   Subscript layout
-    3   Superscript layout
-    4   Lower combining diacritic layout (a̱)
-    5   Upper combining diacritic layout (ā)</p>
+<pre><code>Layouts
+--------
+r   General layout, includes calculus, operators, ...
+s   Logic and set theory layout
+d   Misc operators/symbols layout
+e   Greek layout
+2   Subscript layout
+3   Superscript layout
+4   Lower combining diacritic layout (a̱)
+5   Upper combining diacritic layout (ā)</p>
 
-<pre><code>Modifiers
+Modifiers
 --------
 x   Negates the previous symbol, such as turning = into ≠
 w   Changes the previous symbol to a related larger or more complex symbol, 
@@ -109,7 +108,7 @@ Literals
 [Tab]   Ouputs the tab identation character.*
 
 *   Useful if you're typing in a web browser, in which 
-     the tab keyboard key already means something else.
+    the tab keyboard key already means something else.
 </code></pre>
 
 <h3>
